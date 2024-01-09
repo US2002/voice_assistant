@@ -1,0 +1,4 @@
+[20560:5512:1231/210346.962:WARNING:chrome_main_delegate.cc(667)] This is Chrome version 120.0.6099.130 (not a warning)
+[20560:5512:1231/210347.112:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(168) Starting CBCM Controller Initialization
+[20560:5512:1231/210347.112:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(196) No machine level policy manager exists.
+[20560:5512:1231/210352.346:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

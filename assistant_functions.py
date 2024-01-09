@@ -1,6 +1,4 @@
 from nltk.tokenize import word_tokenize
-import pyttsx3
-import speech_recognition as sr
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 import nltk

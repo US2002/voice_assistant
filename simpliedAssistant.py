@@ -1,4 +1,3 @@
-import nltk
 import speech_recognition as sr
 import pyttsx3
 from pydub import AudioSegment
@@ -6,9 +5,6 @@ from assistant_functions import simple_assistant
 from flask import Flask, request, jsonify, send_file
 
 app = Flask(__name__)
-
-
-nltk.download('punkt')
 
 
 @app.route('/')

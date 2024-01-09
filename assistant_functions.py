@@ -7,6 +7,8 @@ import random
 import warnings
 warnings.simplefilter('ignore')
 
+nltk.download('punkt')
+
 
 intents = {
     "greetings": {

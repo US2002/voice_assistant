@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
 import 'AudioManager.dart';
+import 'api_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,6 +28,8 @@ class _HomePageState extends State<HomePage> {
   RecorderController controller = RecorderController();
 
   //! Audio Manager
+  //! BASE URL HERE
+  ApiManager apiManager = ApiManager(baseUrl: 'http://127.0.0.1:5000');
   AudioManager audioManager = AudioManager();
 
   Widget audioWaveform() {
@@ -46,8 +51,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _refreshWave() {
-    if (isRecording) controller.refresh();
+  Future<void> uploadAudio(String filePath) async {
+    File audioFile = File(filePath);
+    try {
+      await apiManager.sendAudio(audioFile);
+      print('Audio uploaded successfully');
+      response = await apiManager.getReplyText();
+    } catch (e) {
+      print('Failed to upload audio: $e');
+    }
   }
 
   void toggleRecording() async {
@@ -63,6 +75,7 @@ class _HomePageState extends State<HomePage> {
         print(filePath);
         setState(() {
           path = filePath;
+          uploadAudio(filePath);
         });
       }
     } else {

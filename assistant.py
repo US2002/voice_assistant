@@ -1,6 +1,8 @@
-from flask import Flask, request, jsonify
 import speech_recognition as sr
 import pyttsx3
+import subprocess
+import os
+from pydub import AudioSegment
 from assistant_functions import simple_assistant
 # from flowgpt import Checker, Resultscrapper, SendMessage, Websiteopener, waitfortheanswer
 
@@ -61,14 +63,21 @@ def text_to_audio(text, output_text_file, output_audio_file):
         text_file.write(text)
 
 
+def convert_to_wav(input_file, output_file):
+    audio = AudioSegment.from_file(input_file)
+    audio.export(output_file, format="wav")
+
+
 def main():
     print("AI Assistant: Hello! How can I assist you?")
     #! VIA FILE OPERATED
-    input_audio_file = 'play.wav'
+    input_audio_file = 'play2.m4a'
+    convert_to_wav(input_audio_file, 'responses/output.wav')
+
     output_text_file = 'responses/output_text.txt'
     output_audio_file = 'responses/output_audio.wav'
 
-    recognized_text = audio_to_text(input_audio_file)
+    recognized_text = audio_to_text("responses/output.wav")
     assistant_reply = simple_assistant(recognized_text)
     text_to_audio(assistant_reply, output_text_file, output_audio_file)
 

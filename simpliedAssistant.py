@@ -1,7 +1,6 @@
-
-# A very simple Flask Hello World app for you to get started with...
 import speech_recognition as sr
 import pyttsx3
+from pydub import AudioSegment
 from assistant_functions import simple_assistant
 from flask import Flask, request, jsonify, send_file
 
@@ -36,7 +35,8 @@ def process_audio():
         return jsonify({'error': 'No selected file'})
 
     if audio_file:
-        audio_file.save('/home/us2002/assistant/responses/input.wav')
+        audio_file.save('responses/input.aac')
+        convert_to_wav('responses/input.aac', 'responses/input.wav')
 
     return jsonify({'message': 'Audio received successfully'})
 
@@ -44,10 +44,10 @@ def process_audio():
 @app.route('/get_reply', methods=['GET'])
 def get_reply():
     recognized_text = audio_to_text(
-        '/home/us2002/assistant/responses/input.wav')
+        'responses/input.wav')
     assistant_reply = simple_assistant(recognized_text)
-    text_to_audio(assistant_reply, '/home/us2002/assistant/responses/output_text.txt',
-                  '/home/us2002/assistant/responses/output_audio.wav')
+    text_to_audio(assistant_reply, 'responses/output_text.txt',
+                  'responses/output_audio.wav')
 
     response = {
         'text': assistant_reply,
@@ -59,7 +59,7 @@ def get_reply():
 
 @app.route('/get_audio', methods=['GET'])
 def get_audio():
-    audio_file_path = '/home/us2002/assistant/responses/output_audio.wav'
+    audio_file_path = 'responses/output_audio.wav'
     return send_file(audio_file_path, as_attachment=True)
 
 
@@ -79,13 +79,17 @@ def audio_to_text(audio_file):
 def text_to_audio(text, output_text_file, output_audio_file):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
-    # Set a specific voice (replace index with desired voice)
     engine.setProperty('voice', voices[1].id)
     engine.save_to_file(text, output_audio_file)
     engine.runAndWait()
 
     with open(output_text_file, "w") as text_file:
         text_file.write(text)
+
+
+def convert_to_wav(input_file, output_file):
+    audio = AudioSegment.from_file(input_file)
+    audio.export(output_file, format="wav")
 
 
 if __name__ == "__main__":

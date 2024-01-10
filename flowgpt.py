@@ -34,6 +34,11 @@ def Checker():
                 break
 
 
+def popUpCloser():
+    xPath = '/html/body/div[4]/div[3]/div/section/button'
+    driver.find_element(by=By.XPATH, value=xPath).click
+
+
 def Websiteopener():
     global driver
     url = "https://flowgpt.com/chat"
@@ -45,11 +50,12 @@ def Websiteopener():
     chrome_option.add_argument(f'user-data-dir={ScriptDir}\\chromedata')
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_option)
-    driver.maximize_window()
+    # driver = webdriver.Chrome()
     driver.get(url=url)
 
     while True:
         try:
+            # popUpCloser()
             xPATH = '/html/body/div[1]/main/div[3]/div/div[2]/div/div[3]/div[2]/div/div[2]/div[2]/div[3]/div/textarea'
             driver.find_element(by=By.XPATH, value=xPATH)
             Checker()

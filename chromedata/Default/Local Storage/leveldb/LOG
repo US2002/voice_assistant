@@ -1,3 +1,5 @@
-2024/01/11-01:04:45.835 6a44 Reusing MANIFEST F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/MANIFEST-000001
-2024/01/11-01:04:45.847 6a44 Recovering log #7
-2024/01/11-01:04:46.165 6a44 Reusing old log F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log 
+2024/01/11-03:31:01.666 2b84 Reusing MANIFEST F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/MANIFEST-000001
+2024/01/11-03:31:01.668 2b84 Recovering log #7
+2024/01/11-03:31:01.668 2b84 (ignoring error) F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log: dropping 18281 bytes; Corruption: checksum mismatch
+2024/01/11-03:31:01.669 2b84 (ignoring error) F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log: dropping 1015 bytes; Corruption: missing start of fragmented record(2)
+2024/01/11-03:31:01.675 2b84 Reusing old log F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log 

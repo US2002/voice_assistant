@@ -1,4 +1,14 @@
-[20560:5512:1231/210346.962:WARNING:chrome_main_delegate.cc(667)] This is Chrome version 120.0.6099.130 (not a warning)
-[20560:5512:1231/210347.112:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(168) Starting CBCM Controller Initialization
-[20560:5512:1231/210347.112:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(196) No machine level policy manager exists.
-[20560:5512:1231/210352.346:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
+[17864:20628:0111/010444.416:WARNING:chrome_main_delegate.cc(667)] This is Chrome version 120.0.6099.201 (not a warning)
+[17864:20628:0111/010444.578:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(168) Starting CBCM Controller Initialization
+[17864:20628:0111/010444.578:INFO:policy_logger.cc(144)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(196) No machine level policy manager exists.
+[17864:6976:0111/010448.893:ERROR:cert_issuer_source_aia.cc(34)] Error parsing cert retrieved from AIA (as DER):
+ERROR: Couldn't read tbsCertificate as SEQUENCE
+ERROR: Failed parsing Certificate
+
+[17864:20628:0111/010449.057:INFO:CONSOLE(1)] "conversation ID not defined; skipped upload...", source: https://flowgpt.com/_next/static/chunks/3115-f6996dd5ecace8ba.js (1)
+[17864:18004:0111/010449.555:WARNING:page_discarding_helper.cc(126)] Discarding multiple pages with target (kb): 0
+[17864:20628:0111/010450.049:INFO:CONSOLE(1)] "no chat files to upload; skipping...", source: https://flowgpt.com/_next/static/chunks/3115-f6996dd5ecace8ba.js (1)
+[17864:20628:0111/010453.844:INFO:CONSOLE(374)] "Changelogfy started: [Build impacting products from user feedback - https://changelogfy.com]", source: https://widget.changelogfy.com/index.js (374)
+[17864:4468:0111/010454.555:WARNING:page_discarding_helper.cc(126)] Discarding multiple pages with target (kb): 0
+[17864:6976:0111/010459.555:WARNING:page_discarding_helper.cc(126)] Discarding multiple pages with target (kb): 0
+[17864:18004:0111/010504.558:WARNING:page_discarding_helper.cc(126)] Discarding multiple pages with target (kb): 0

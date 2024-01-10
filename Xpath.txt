@@ -1,0 +1,27 @@
+2024-01-10 18:58:30,430: ====== WebDriver manager ======
+2024-01-10 18:58:30,444: Get LATEST chromedriver version for google-chrome
+2024-01-10 18:58:30,444: Exception on /get_reply [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/us2002/assistant/main.py", line 49, in get_reply
+    Websiteopener()
+  File "/home/us2002/assistant/flowgpt.py", line 47, in Websiteopener
+    service = Service(ChromeDriverManager().install())
+  File "/home/us2002/.local/lib/python3.10/site-packages/webdriver_manager/chrome.py", line 40, in install
+    driver_path = self._get_driver_binary_path(self.driver)
+  File "/home/us2002/.local/lib/python3.10/site-packages/webdriver_manager/core/manager.py", line 40, in _get_driver_binary_path
+    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))
+  File "/home/us2002/.local/lib/python3.10/site-packages/webdriver_manager/drivers/chrome.py", line 32, in get_driver_download_url
+    driver_version_to_download = self.get_driver_version_to_download()
+  File "/home/us2002/.local/lib/python3.10/site-packages/webdriver_manager/core/driver.py", line 48, in get_driver_version_to_download
+    return self.get_latest_release_version()
+  File "/home/us2002/.local/lib/python3.10/site-packages/webdriver_manager/drivers/chrome.py", line 64, in get_latest_release_version
+    determined_browser_version = ".".join(determined_browser_version.split(".")[:3])
+AttributeError: 'NoneType' object has no attribute 'split'

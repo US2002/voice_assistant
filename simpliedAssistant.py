@@ -1,8 +1,8 @@
 import speech_recognition as sr
-import pyttsx3
 from pydub import AudioSegment
+from flask import Flask, request, jsonify
 from assistant_functions import simple_assistant
-from flask import Flask, request, jsonify, send_file
+from flowgpt import Resultscrapper, SendMessage, Websiteopener, waitfortheanswer
 
 app = Flask(__name__)
 
@@ -45,22 +45,33 @@ def process_audio():
 def get_reply():
     recognized_text = audio_to_text(
         'responses/input.wav')
+    #!FOR SIMPLE ASSISTANT
     assistant_reply = simple_assistant(recognized_text)
-    text_to_audio(assistant_reply, 'responses/output_text.txt',
-                  'responses/output_audio.wav')
-
     response = {
         'text': assistant_reply,
-        'audio_url': 'https://us2002.pythonanywhere.com/get_audio'
+        'recevied': recognized_text
     }
 
     return jsonify(response)
 
 
-@app.route('/get_audio', methods=['GET'])
-def get_audio():
-    audio_file_path = 'responses/output_audio.wav'
-    return send_file(audio_file_path, as_attachment=True)
+@app.route('/get_flow_reply', methods=['GET'])
+def get_flow_reply():
+    recognized_text = audio_to_text(
+        'responses/input.wav')
+    #!FOR SIMPLE ASSISTANT
+    # assistant_reply = simple_assistant(recognized_text)
+    #!FOR FLOWGPT
+    Websiteopener()
+    SendMessage(Query=recognized_text)
+    waitfortheanswer()
+    assistant_reply = Resultscrapper()
+    response = {
+        'text': assistant_reply,
+        'recevied': recognized_text
+    }
+
+    return jsonify(response)
 
 
 def audio_to_text(audio_file):
@@ -74,17 +85,6 @@ def audio_to_text(audio_file):
         return "Could not understand the audio"
     except sr.RequestError:
         return "Request error occurred"
-
-
-def text_to_audio(text, output_text_file, output_audio_file):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
-    engine.save_to_file(text, output_audio_file)
-    engine.runAndWait()
-
-    with open(output_text_file, "w") as text_file:
-        text_file.write(text)
 
 
 def convert_to_wav(input_file, output_file):

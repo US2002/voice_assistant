@@ -34,9 +34,8 @@ def Checker():
                 break
 
 
-def popUpCloser():
-    xPath = '/html/body/div[4]/div[3]/div/section/button'
-    driver.find_element(by=By.XPATH, value=xPath).click
+def websitCloser():
+    driver.close()
 
 
 def Websiteopener():
@@ -50,7 +49,7 @@ def Websiteopener():
     chrome_option.add_argument(f'user-data-dir={ScriptDir}\\chromedata')
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_option)
-    # driver = webdriver.Chrome()
+    driver.maximize_window()
     driver.get(url=url)
 
     while True:
@@ -83,6 +82,8 @@ def Resultscrapper():
     Text = driver.find_element(by=By.XPATH, value=Xpath).text
     ChatNumberNew = int(ChatNumber) + 2
     ChatNumber = ChatNumberNew
+
+    websitCloser()
     return Text
 
 

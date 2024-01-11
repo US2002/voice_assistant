@@ -1,4 +1,5 @@
-2024/01/11-03:29:51.873 3b1c Reusing MANIFEST F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/MANIFEST-000001
-2024/01/11-03:29:51.875 3b1c Recovering log #7
-2024/01/11-03:29:51.875 3b1c (ignoring error) F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log: dropping 15663 bytes; Corruption: checksum mismatch
-2024/01/11-03:29:51.878 3b1c Reusing old log F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/000007.log 
+2024/01/11-14:47:38.825 4f20 Reusing MANIFEST F:\Coding\voice_assistant\chromedata\Default\Local Storage\leveldb/MANIFEST-000001
+2024/01/11-14:47:38.827 4f20 Recovering log #3
+2024/01/11-14:47:38.828 4f20 Level-0 table #3: started
+2024/01/11-14:47:38.869 4f20 Level-0 table #3: 14333 bytes OK
+2024/01/11-14:47:38.909 4f20 Delete type=0 #3

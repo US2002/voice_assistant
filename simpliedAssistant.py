@@ -41,7 +41,7 @@ def process_audio():
     return jsonify({'message': 'Audio received successfully'})
 
 
-@app.route('/get_reply', methods=['GET'])
+@app.route('/get_flow_reply', methods=['GET'])
 def get_reply():
     recognized_text = audio_to_text(
         'responses/input.wav')
@@ -55,7 +55,7 @@ def get_reply():
     return jsonify(response)
 
 
-@app.route('/get_flow_reply', methods=['GET'])
+@app.route('/get_reply', methods=['GET'])
 def get_flow_reply():
     recognized_text = audio_to_text(
         'responses/input.wav')
@@ -93,4 +93,4 @@ def convert_to_wav(input_file, output_file):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5050, debug=True)
